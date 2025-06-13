@@ -3,7 +3,7 @@
 constexpr char WIFI_SSID[] = "ACLAB";
 constexpr char WIFI_PASSWORD[] = "ACLAB2023";
 
-void InitWiFi()
+void initWiFi()
 {
     Serial.println("Connecting to AP ...");
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -13,6 +13,9 @@ void InitWiFi()
         Serial.print(".");
     }
     Serial.println("Connected to AP");
+    Serial.println("WiFi connected.");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());
 }
 
 bool Wifi_reconnect()
@@ -22,6 +25,6 @@ bool Wifi_reconnect()
     {
         return true;
     }
-    InitWiFi();
+    initWiFi();
     return true;
 }

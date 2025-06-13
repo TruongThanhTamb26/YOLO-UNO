@@ -4,9 +4,10 @@
 void setup()
 {
   Serial.begin(115200);
+  initMQTT();
   initDHT20();
   initHCSR04();
-  initMQTT();
+  initWebserver();
 }
 
 void loop()
