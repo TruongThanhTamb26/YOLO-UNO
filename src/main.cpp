@@ -7,7 +7,7 @@ void setup()
   initWiFi();
   initMQTT();
   initWebserver();
-  initDHT20();
+  // initDHT20();
 }
 
 void loop()
@@ -17,4 +17,5 @@ void loop()
     return;
   }
   reconnectMQTT();
+  handleWebserver();
 }

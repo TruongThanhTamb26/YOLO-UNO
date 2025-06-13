@@ -1,7 +1,7 @@
 #include "TaskWebserver.h"
 
 // Assign output variables to GPIO pins
-const int output26 = 0;
+const int output26 = 6;
 const int output27 = 7;
 String output26State = "off";
 String output27State = "off";

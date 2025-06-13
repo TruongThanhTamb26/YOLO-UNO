@@ -48,6 +48,7 @@ void InitMQTT()
 
         String data = "hello";
         publishData("feed_1", data);
+        publishData("IP", WiFi.localIP().toString());
         Serial.println("Start");
     }
     else

@@ -27,7 +27,7 @@ void TaskDHT20(void *pvParameters)
 
 void initDHT20()
 {
-    Wire.begin(MY_SCL, MY_SDA);
+    Wire.begin(MY_SDA, MY_SCL);
     dht20.begin();
     xTaskCreate(
         TaskDHT20,   // Function to implement the task

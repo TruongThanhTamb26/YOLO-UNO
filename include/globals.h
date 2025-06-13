@@ -18,8 +18,8 @@
 #include "../src/device/TaskHCSR04.h"
 
 #define delay_time 10000
-#define MY_SCL 11
-#define MY_SDA 12
+#define MY_SCL 12
+#define MY_SDA 11
 #define MY_TRIG 10
 #define MY_ECHO 17
 
