@@ -3,6 +3,6 @@
 
 #include "globals.h"
 
-extern void initWebserver();
+void initWebserver();
 
 #endif /* INC_TASKWEBSERVER_H_ */
