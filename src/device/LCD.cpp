@@ -6,9 +6,8 @@ void TaskLCD(void *pvParameters)
 {
   while (true)
   {
-    Serial.println("LCD Task Running");
     lcd.clear();
-    lcd.print("Hello, World!");
+    lcd.print("Henno, World!");
     lcd.setCursor(0, 1);
     lcd.print("ESP32 LCD Test");
     vTaskDelay(2000 / portTICK_PERIOD_MS); // Update every 2 seconds

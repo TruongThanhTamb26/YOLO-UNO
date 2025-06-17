@@ -9,6 +9,7 @@
 #include <PubSubClient.h>
 #include <HCSR04.h>
 #include <LCD_I2C.h>
+#include <gravity_soil_moisture_sensor.h>
 
 ///
 #include "../src/connect/Wifi.h"
@@ -18,11 +19,12 @@
 #include "../src/device/DHT20.h"
 #include "../src/device/HCSR04.h"
 #include "../src/device/LCD.h"
+#include "../src/device/Moisture.h"
 
-#define delay_time 10000
 #define MY_SCL 12
 #define MY_SDA 11
 #define MY_TRIG 10
 #define MY_ECHO 17
+#define MY_MOISTURE 1
 
 #endif

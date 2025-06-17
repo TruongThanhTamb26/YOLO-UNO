@@ -5,12 +5,14 @@ void setup()
 {
   Serial.begin(115200);
   Wire.begin(MY_SDA, MY_SCL);
+
   initWiFi();
   initMQTT();
   initWebserver();
 
   initLCD();
   initDHT20();
+  initMoisture();
   // initHCSR04();
 }
 
