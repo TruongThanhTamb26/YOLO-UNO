@@ -20,11 +20,13 @@
 #include "../src/device/HCSR04.h"
 #include "../src/device/LCD.h"
 #include "../src/device/Moisture.h"
+#include "../src/device/Light_sensor.h"
 
 #define MY_SCL 12
 #define MY_SDA 11
 #define MY_TRIG 10
 #define MY_ECHO 17
 #define MY_MOISTURE 1
+#define MY_LIGHT 2
 
 #endif

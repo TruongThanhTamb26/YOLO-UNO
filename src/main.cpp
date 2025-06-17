@@ -13,6 +13,7 @@ void setup()
   initLCD();
   initDHT20();
   initMoisture();
+  initLightSensor();
   // initHCSR04();
 }
 

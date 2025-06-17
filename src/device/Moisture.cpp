@@ -7,7 +7,8 @@ void TaskMoisture(void *pvParameters)
   while (true)
   {
     uint16_t moisture_value = gravity_sensor.Read();
-    Serial.println("Moisture Value: " + String(moisture_value));
+    moisture_value = map(moisture_value, 0, 3500, 0, 100); // Map to percentage
+    Serial.println("Moisture Value: " + String(moisture_value) + "%");
     publishData("Moisture", String(moisture_value));
     vTaskDelay(5000 / portTICK_PERIOD_MS); // Update every 5 seconds
   }
