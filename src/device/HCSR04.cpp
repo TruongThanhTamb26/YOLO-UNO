@@ -1,14 +1,17 @@
 #include "HCSR04.h"
 
+int distanceValue = 0; // Global variable to store the distance value
+
 Ultrasonic ultrasonic(MY_TRIG, MY_ECHO);
 
 void TaskHCSR04(void *pvParameters)
 {
   while (true)
   {
+    distanceValue = ultrasonic.read();
 
     Serial.print("1: ");
-    Serial.print(ultrasonic.read());
+    Serial.print(distanceValue);
     Serial.println(" cm");
 
     Serial.println("---");

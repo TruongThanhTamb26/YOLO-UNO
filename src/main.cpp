@@ -10,11 +10,12 @@ void setup()
   initMQTT();
   initWebserver();
 
-  initLCD();
   initDHT20();
   initMoisture();
   initLightSensor();
   initHCSR04();
+
+  initLCD();
 
   initRGB();
 }

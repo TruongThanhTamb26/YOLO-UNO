@@ -1,5 +1,8 @@
 #include "DHT20.h"
 
+int Humidity = 0;    // Global variable to store humidity
+int Temperature = 0; // Global variable to store temperature
+
 DHT20 dht20; // Declare the DHT20 object
 
 void TaskDHT20(void *pvParameters)
@@ -9,16 +12,8 @@ void TaskDHT20(void *pvParameters)
         int result = dht20.read();
         if (result == DHT20_OK)
         {
-            // LCD
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Temp: ");
-            lcd.print(dht20.getTemperature());
-            lcd.print(" C");
-            lcd.setCursor(0, 1);
-            lcd.print("Hum: ");
-            lcd.print(dht20.getHumidity());
-            lcd.print(" %");
+            Humidity = dht20.getHumidity();
+            Temperature = dht20.getTemperature();
             // Serial
             Serial.println(String(dht20.getTemperature()) + "-" + String(dht20.getHumidity()));
             // MQTT

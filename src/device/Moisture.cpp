@@ -1,12 +1,13 @@
 #include "Moisture.h"
 
 GravitySoilMoistureSensor gravity_sensor; // Declare the Gravity Soil Moisture Sensor object
+uint16_t moisture_value = 0;              // Initialize the global variable to store the moisture value
 
 void TaskMoisture(void *pvParameters)
 {
   while (true)
   {
-    uint16_t moisture_value = gravity_sensor.Read();
+    moisture_value = gravity_sensor.Read();
     moisture_value = map(moisture_value, 0, 3500, 0, 100); // Map to percentage
     // Serial
     Serial.println("Moisture Value: " + String(moisture_value) + "%");

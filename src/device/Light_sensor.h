@@ -5,4 +5,6 @@
 
 void initLightSensor();
 
+extern int lightValue; // Global variable to store light value
+
 #endif // LIGHT_SENSOR_H

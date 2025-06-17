@@ -4,6 +4,8 @@
 #include "globals.h"
 
 void initDHT20();
-void getValueDHT20();
+
+extern int Humidity;    // Global variable to store humidity
+extern int Temperature; // Global variable to store temperature
 
 #endif /* INC_DHT20_H_ */

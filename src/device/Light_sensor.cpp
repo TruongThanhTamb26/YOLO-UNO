@@ -1,17 +1,17 @@
 #include "Light_sensor.h"
 
-int lightValue = 0;
+int lightValue = 0; // Global variable to store the light value
 
 void TaskLightSensor(void *pvParameters)
 {
   while (true)
   {
-    int lightValue = analogRead(MY_LIGHT);
-    int percentage = map(lightValue, 0, 4095, 0, 100);
+    lightValue = analogRead(MY_LIGHT);
+    lightValue = map(lightValue, 0, 4095, 0, 100);
     // Serial
-    Serial.println("Light Sensor Value: " + String(percentage) + "%");
+    Serial.println("Light Sensor Value: " + String(lightValue) + "%");
     // MQTT
-    publishData("Light", String(percentage));
+    publishData("Light", String(lightValue));
     vTaskDelay(5000 / portTICK_PERIOD_MS); // Update every 5 seconds
   }
 }
