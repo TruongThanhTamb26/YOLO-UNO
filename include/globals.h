@@ -7,7 +7,7 @@
 #include <WebServer.h>
 #include <DHT20.h>
 #include <PubSubClient.h>
-#include <HCSR04.h>
+#include <Ultrasonic.h>
 #include <LCD_I2C.h>
 #include <gravity_soil_moisture_sensor.h>
 #include <Adafruit_NeoPixel.h>
@@ -29,8 +29,8 @@
 
 #define MY_SCL 12
 #define MY_SDA 11
-#define MY_TRIG 10
-#define MY_ECHO 17
+#define MY_TRIG 18
+#define MY_ECHO 21
 #define MY_MOISTURE 1
 #define MY_LIGHT 2
 #define MY_RGB 6

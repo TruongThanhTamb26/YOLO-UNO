@@ -14,7 +14,7 @@ void setup()
   initDHT20();
   initMoisture();
   initLightSensor();
-  // initHCSR04();
+  initHCSR04();
 
   initRGB();
 }

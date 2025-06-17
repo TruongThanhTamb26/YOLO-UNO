@@ -6,6 +6,4 @@
 void initDHT20();
 void getValueDHT20();
 
-extern DHT20 dht20; // Declare the DHT20 object
-
 #endif /* INC_DHT20_H_ */

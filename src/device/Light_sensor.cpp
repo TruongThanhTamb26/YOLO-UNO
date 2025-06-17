@@ -8,11 +8,6 @@ void TaskLightSensor(void *pvParameters)
   {
     int lightValue = analogRead(MY_LIGHT);
     int percentage = map(lightValue, 0, 4095, 0, 100);
-    // LCD
-    lcd.setCursor(0, 0);
-    lcd.print("Light:");
-    lcd.print(percentage);
-    lcd.print(" %");
     // Serial
     Serial.println("Light Sensor Value: " + String(percentage) + "%");
     // MQTT
@@ -25,4 +20,12 @@ void initLightSensor()
 {
   // Initialize the light sensor
   pinMode(MY_LIGHT, INPUT);
+  xTaskCreate(
+      TaskLightSensor,   // Function to implement the task
+      "TaskLightSensor", // Name of the task
+      4096,              // Stack size in words
+      NULL,              // Task input parameter
+      2,                 // Priority of the task
+      NULL               // Task handle
+  );
 }

@@ -8,11 +8,6 @@ void TaskMoisture(void *pvParameters)
   {
     uint16_t moisture_value = gravity_sensor.Read();
     moisture_value = map(moisture_value, 0, 3500, 0, 100); // Map to percentage
-    // LCD
-    lcd.setCursor(0, 0);
-    lcd.print("Moisture:");
-    lcd.print(moisture_value);
-    lcd.print(" %");
     // Serial
     Serial.println("Moisture Value: " + String(moisture_value) + "%");
     // MQTT
@@ -24,4 +19,12 @@ void TaskMoisture(void *pvParameters)
 void initMoisture()
 {
   gravity_sensor.Setup(MY_MOISTURE);
+  xTaskCreate(
+      TaskMoisture,   // Function to implement the task
+      "TaskMoisture", // Name of the task
+      4096,           // Stack size in words
+      NULL,           // Task input parameter
+      2,              // Priority of the task
+      NULL            // Task handle
+  );
 }

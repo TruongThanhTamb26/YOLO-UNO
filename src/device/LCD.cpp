@@ -1,6 +1,6 @@
 #include "LCD.h"
 
-LCD_I2C lcd(0x27, 16, 2); // Default address for many I2C LCDs
+LCD_I2C lcd(0x21, 16, 2); // Default address for many I2C LCDs
 
 void initLCD()
 {

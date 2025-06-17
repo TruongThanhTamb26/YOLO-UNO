@@ -1,31 +1,23 @@
 #include "HCSR04.h"
 
-HCSR04Sensor hcsr04;
+Ultrasonic ultrasonic(MY_TRIG, MY_ECHO);
 
 void TaskHCSR04(void *pvParameters)
 {
   while (true)
   {
-    double *distances = hcsr04.measureDistanceCm();
 
-    // Add error checking before using the pointer
-    if (distances != NULL && *distances > 0)
-    {
-      Serial.println(String(*distances) + " cm");
-      publishData("Distance", String(*distances));
-    }
-    else
-    {
-      Serial.println("HCSR04 reading error or out of range");
-      publishData("Distance", "error");
-    }
+    Serial.print("1: ");
+    Serial.print(ultrasonic.read());
+    Serial.println(" cm");
+
+    Serial.println("---");
     vTaskDelay(5000 / portTICK_PERIOD_MS);
   }
 }
 
 void initHCSR04()
 {
-  hcsr04.begin(MY_TRIG, MY_ECHO);
 
   xTaskCreate(
       TaskHCSR04,   // Function to implement the task

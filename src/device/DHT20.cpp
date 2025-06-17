@@ -10,6 +10,7 @@ void TaskDHT20(void *pvParameters)
         if (result == DHT20_OK)
         {
             // LCD
+            lcd.clear();
             lcd.setCursor(0, 0);
             lcd.print("Temp: ");
             lcd.print(dht20.getTemperature());
@@ -36,4 +37,12 @@ void TaskDHT20(void *pvParameters)
 void initDHT20()
 {
     dht20.begin();
+    xTaskCreate(
+        TaskDHT20,   // Function to implement the task
+        "TaskDHT20", // Name of the task
+        4096,        // Stack size in words
+        NULL,        // Task input parameter
+        2,           // Priority of the task
+        NULL         // Task handle
+    );
 }
