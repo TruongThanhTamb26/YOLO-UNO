@@ -8,14 +8,16 @@
 #include <DHT20.h>
 #include <PubSubClient.h>
 #include <HCSR04.h>
+#include <LCD_I2C.h>
 
 ///
-#include "../src/connect/TaskWifi.h"
-#include "../src/connect/TaskMQTT.h"
-#include "../src/connect/TaskWebserver.h"
+#include "../src/connect/Wifi.h"
+#include "../src/connect/MQTT.h"
+#include "../src/connect/Webserver.h"
 
-#include "../src/device/TaskDHT20.h"
-#include "../src/device/TaskHCSR04.h"
+#include "../src/device/DHT20.h"
+#include "../src/device/HCSR04.h"
+#include "../src/device/LCD.h"
 
 #define delay_time 10000
 #define MY_SCL 12

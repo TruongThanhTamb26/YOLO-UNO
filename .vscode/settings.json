@@ -26,7 +26,8 @@
         "list": "cpp",
         "atomic": "cpp",
         "cmath": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "memory": "cpp"
     },
     "cmake.ignoreCMakeListsMissing": true
 }

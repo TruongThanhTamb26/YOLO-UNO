@@ -1,11 +1,11 @@
 
-#include "TaskMQTT.h"
+#include "MQTT.h"
 
 #define MQTT_SERVER "io.adafruit.com"
 #define MQTT_PORT 1883
 
 String IO_USERNAME = "tamtruongb26";
-String IO_KEY = "";
+String IO_KEY = "aio_exJs72773EmUUOrxBtakwXtBUaFM";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -47,7 +47,6 @@ void InitMQTT()
         client.subscribe((String(IO_USERNAME) + "/feeds/Humidity").c_str());
 
         String data = "hello";
-        publishData("feed_1", data);
         publishData("IP", WiFi.localIP().toString());
         Serial.println("Start");
     }
