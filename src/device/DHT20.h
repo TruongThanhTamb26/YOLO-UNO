@@ -3,7 +3,9 @@
 
 #include "globals.h"
 
-extern void initDHT20();
-extern void getValueDHT20();
+void initDHT20();
+void getValueDHT20();
+
+extern DHT20 dht20; // Declare the DHT20 object
 
 #endif /* INC_DHT20_H_ */

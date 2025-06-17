@@ -2,28 +2,23 @@
 
 HCSR04Sensor hcsr04;
 
-void getValueHCSR04()
-{
-  double *distances = hcsr04.measureDistanceCm();
-
-  // Add error checking before using the pointer
-  if (distances != NULL && *distances > 0)
-  {
-    Serial.println(String(*distances) + " cm");
-    publishData("Distance", String(*distances));
-  }
-  else
-  {
-    Serial.println("HCSR04 reading error or out of range");
-    publishData("Distance", "error");
-  }
-}
-
 void TaskHCSR04(void *pvParameters)
 {
   while (true)
   {
-    getValueHCSR04();
+    double *distances = hcsr04.measureDistanceCm();
+
+    // Add error checking before using the pointer
+    if (distances != NULL && *distances > 0)
+    {
+      Serial.println(String(*distances) + " cm");
+      publishData("Distance", String(*distances));
+    }
+    else
+    {
+      Serial.println("HCSR04 reading error or out of range");
+      publishData("Distance", "error");
+    }
     vTaskDelay(5000 / portTICK_PERIOD_MS);
   }
 }

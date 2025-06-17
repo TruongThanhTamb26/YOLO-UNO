@@ -14,6 +14,6 @@ const uint32_t PURPLE = Adafruit_NeoPixel::Color(128, 0, 128);
 const uint32_t WHITE = Adafruit_NeoPixel::Color(255, 255, 255);
 const uint32_t BLACK = Adafruit_NeoPixel::Color(0, 0, 0);
 
-extern void initRGB();
+void initRGB();
 
 #endif // _RGB_H_

@@ -3,6 +3,8 @@
 
 #include "globals.h"
 
-extern void initMoisture();
+extern GravitySoilMoistureSensor gravity_sensor;
+
+void initMoisture();
 
 #endif // Moisture_H
