@@ -5,7 +5,7 @@
 #define MQTT_PORT 1883
 
 String IO_USERNAME = "tamtruongb26";
-String IO_KEY = "aio_exJs72773EmUUOrxBtakwXtBUaFM";
+String IO_KEY = "aio_VKzI75fHY0pUS6V2vATG1SoAXad8";
 
 WiFiClient espClient;
 PubSubClient client(espClient);

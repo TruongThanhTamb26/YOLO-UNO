@@ -15,6 +15,8 @@ void setup()
   initMoisture();
   initLightSensor();
   // initHCSR04();
+
+  initRGB();
 }
 
 void loop()
