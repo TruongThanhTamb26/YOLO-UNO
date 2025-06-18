@@ -35,9 +35,9 @@ void initDHT20()
     xTaskCreate(
         TaskDHT20,   // Function to implement the task
         "TaskDHT20", // Name of the task
-        4096,        // Stack size in words
+        2048,        // Stack size in words
         NULL,        // Task input parameter
-        2,           // Priority of the task
+        1,           // Priority of the task
         NULL         // Task handle
     );
 }

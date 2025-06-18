@@ -4,6 +4,5 @@
 #include "globals.h"
 
 void initFan();
-void TaskFan(void *pvParameters);
 
 #endif // _fan_h

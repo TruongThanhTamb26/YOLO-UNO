@@ -43,9 +43,6 @@ void InitMQTT()
     if (client.connect(clientId.c_str(), IO_USERNAME.c_str(), IO_KEY.c_str()))
     {
         Serial.println("MQTT Connected");
-        client.subscribe((String(IO_USERNAME) + "/feeds/Temperature").c_str());
-        client.subscribe((String(IO_USERNAME) + "/feeds/Humidity").c_str());
-
         String data = "hello";
         publishData("IP", WiFi.localIP().toString());
         Serial.println("Start");

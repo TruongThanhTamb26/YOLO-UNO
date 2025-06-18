@@ -4,6 +4,5 @@
 #include "globals.h"
 
 void initRelay();
-void TaskRelay(void *pvParameters);
 
 #endif // _Relay_h

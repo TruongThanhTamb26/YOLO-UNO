@@ -44,7 +44,7 @@ void initRelayFan()
       "TaskRelay",  // Name of the task
       4096,         // Stack size in words
       NULL,         // Task input parameter
-      2,            // Priority of the task
+      3,            // Priority of the task
       NULL          // Task handle
   );
 }

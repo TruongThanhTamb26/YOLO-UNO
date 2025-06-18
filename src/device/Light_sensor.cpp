@@ -23,7 +23,7 @@ void initLightSensor()
   xTaskCreate(
       TaskLightSensor,   // Function to implement the task
       "TaskLightSensor", // Name of the task
-      4096,              // Stack size in words
+      2048,              // Stack size in words
       NULL,              // Task input parameter
       2,                 // Priority of the task
       NULL               // Task handle

@@ -27,7 +27,7 @@ void initHCSR04()
   xTaskCreate(
       TaskHCSR04,   // Function to implement the task
       "TaskHCSR04", // Name of the task
-      4096,         // Stack size in words
+      2048,         // Stack size in words
       NULL,         // Task input parameter
       2,            // Priority of the task
       NULL          // Task handle
