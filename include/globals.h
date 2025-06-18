@@ -20,13 +20,15 @@
 // INPUT
 #include "../src/device/DHT20.h"
 #include "../src/device/HCSR04.h"
-#include "../src/device/LCD.h"
 #include "../src/device/Moisture.h"
 #include "../src/device/Light_sensor.h"
 
 // OUTPUT
+#include "../src/device/LCD.h"
 #include "../src/device/RGB.h"
 #include "../src/device/Relay.h"
+#include "../src/device/Fan.h"
+#include "../src/device/Relay_Fan.h"
 
 #define MY_SCL 12
 #define MY_SDA 11
@@ -36,5 +38,6 @@
 #define MY_LIGHT 2
 #define MY_RGB 6
 #define MY_RELAY 8
+#define MY_FAN 10
 
 #endif
