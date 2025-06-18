@@ -10,11 +10,13 @@ void TaskHCSR04(void *pvParameters)
   {
     distanceValue = ultrasonic.read();
 
+    // Serial
     Serial.print("1: ");
     Serial.print(distanceValue);
     Serial.println(" cm");
 
-    Serial.println("---");
+    // MQTT
+    publishData("Distance", String(distanceValue));
     vTaskDelay(5000 / portTICK_PERIOD_MS);
   }
 }

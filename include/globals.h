@@ -26,6 +26,7 @@
 
 // OUTPUT
 #include "../src/device/RGB.h"
+#include "../src/device/Relay.h"
 
 #define MY_SCL 12
 #define MY_SDA 11
@@ -34,5 +35,6 @@
 #define MY_MOISTURE 1
 #define MY_LIGHT 2
 #define MY_RGB 6
+#define MY_RELAY 8
 
 #endif

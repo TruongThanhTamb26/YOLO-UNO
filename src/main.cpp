@@ -16,7 +16,7 @@ void setup()
   initHCSR04();
 
   initLCD();
-
+  initRelay();
   initRGB();
 }
 
