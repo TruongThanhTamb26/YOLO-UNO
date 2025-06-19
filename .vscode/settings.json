@@ -27,7 +27,12 @@
         "atomic": "cpp",
         "cmath": "cpp",
         "algorithm": "cpp",
-        "memory": "cpp"
+        "memory": "cpp",
+        "fstream": "cpp",
+        "iosfwd": "cpp",
+        "limits": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp"
     },
     "cmake.ignoreCMakeListsMissing": true
 }

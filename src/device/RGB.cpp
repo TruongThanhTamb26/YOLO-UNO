@@ -1,6 +1,6 @@
 #include "RGB.h"
 
-Adafruit_NeoPixel rgb(4, MY_RGB, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel rgb = Adafruit_NeoPixel(4, MY_RGB, NEO_GRB + NEO_KHZ800);
 uint32_t colors[] = {RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, PURPLE, WHITE, BLACK};
 
 bool Auto = true;
@@ -14,7 +14,8 @@ void TaskRGB(void *pvParameters)
     {
     case COLOR_RED:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -28,7 +29,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_ORANGE:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -42,7 +44,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_YELLOW:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -56,7 +59,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_GREEN:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -70,7 +74,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_BLUE:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -84,7 +89,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_INDIGO:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -98,7 +104,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_PURPLE:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -112,7 +119,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_WHITE:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -126,7 +134,8 @@ void TaskRGB(void *pvParameters)
       break;
     case COLOR_BLACK:
       rgb.clear(); // Clear previous colors
-      rgb.setPixelColor(0, colors[currentColor]);
+      for (int i = 0; i < 4; i++)
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : " + String(currentColor));
       if (Auto)
@@ -141,7 +150,7 @@ void TaskRGB(void *pvParameters)
     default:
       // If an unknown color is encountered, reset to OFF
       for (int i = 0; i < 4; i++)
-        rgb.setPixelColor(0, colors[currentColor]);
+        rgb.setPixelColor(i, colors[currentColor]); // Set the current color
       rgb.show();
       Serial.println("Led RGB : OFF");
       currentColor = COLOR_RED; // Reset to OFF
