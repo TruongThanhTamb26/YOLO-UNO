@@ -37,7 +37,7 @@ void initDHT20()
         "TaskDHT20", // Name of the task
         2048,        // Stack size in words
         NULL,        // Task input parameter
-        1,           // Priority of the task
+        2,           // Priority of the task
         NULL         // Task handle
     );
 }
