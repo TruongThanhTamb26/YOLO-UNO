@@ -8,16 +8,17 @@ void setup()
 
   initWiFi();
   initMQTT();
-  initWebserver();
+  initLittleFS();
+  initWebSocket();
 
-  initDHT20();
-  initMoisture();
-  initLightSensor();
-  initHCSR04();
+  // initDHT20();
+  // initMoisture();
+  // initLightSensor();
+  // initHCSR04();
 
-  initLCD();
-  initRGB();
-  initRelayFan();
+  // initLCD();
+  // initRGB();
+  // initRelayFan();
 }
 
 void loop()
@@ -27,5 +28,5 @@ void loop()
     return;
   }
   reconnectMQTT();
-  handleWebserver();
+  webSocket();
 }

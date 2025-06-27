@@ -4,7 +4,12 @@
 // include libraries
 #include <Wire.h>
 #include <WiFi.h>
-#include <WebServer.h>
+// #include <WebServer.h>
+#include <AsyncTCP.h>
+#include <ESPAsyncWebServer.h>
+#include <ElegantOTA.h>
+#include "LittleFS.h"
+#include <Arduino_JSON.h>
 #include <DHT20.h>
 #include <PubSubClient.h>
 #include <Ultrasonic.h>
@@ -15,7 +20,7 @@
 // CONNECTIVITY
 #include "../src/connect/Wifi.h"
 #include "../src/connect/MQTT.h"
-#include "../src/connect/Webserver.h"
+#include "../src/connect/Websocket.h"
 
 // INPUT
 #include "../src/device/DHT20.h"

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESP IoT Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="topnav">
+    <h1>ESP IoT Dashboard</h1>
+    <p class="subtitle">Live Sensor Readings via WebSocket</p>
+  </header>
+
+  <main class="content">
+    <section class="card-grid">
+      <div class="card">
+        <p class="card-title"><i class="fas fa-thermometer-half icon"></i> Temperature</p>
+        <p class="reading"><span id="temperature">--</span> &deg;C</p>
+      </div>
+      <div class="card">
+        <p class="card-title"><i class="fas fa-tint icon"></i> Humidity</p>
+        <p class="reading"><span id="humidity">--</span> &percnt;</p>
+      </div>
+      <div class="card">
+        <p class="card-title"><i class="fas fa-seedling icon"></i> Soil Moisture</p>
+        <p class="reading"><span id="moisture">--</span> &percnt;</p>
+      </div>
+      <div class="card">
+        <p class="card-title"><i class="fas fa-lightbulb icon"></i> Light</p>
+        <p class="reading"><span id="light">--</span> %</p>
+      </div>
+      <div class="card">
+        <p class="card-title"><i class="fas fa-ruler icon"></i> Distance</p>
+        <p class="reading"><span id="distance">--</span> cm</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
