@@ -42,3 +42,7 @@ function onMessage(event) {
         document.getElementById(key).innerHTML = myObj[key];
     }
 }
+
+function toggleLED() {
+    websocket.send("toggleLED");
+}

@@ -45,15 +45,17 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len)
   AwsFrameInfo *info = (AwsFrameInfo *)arg;
   if (info->final && info->index == 0 && info->len == len && info->opcode == WS_TEXT)
   {
-    // data[len] = 0;
-    // String message = (char*)data;
-    //  Check if the message is "getReadings"
-    // if (strcmp((char*)data, "getReadings") == 0) {
-    // if it is, send current sensor readings
-    String sensorReadings = getSensorReadings();
-    Serial.print(sensorReadings);
-    notifyClients(sensorReadings);
-    //}
+    String msg = String((char *)data);
+
+    if (msg == "getReadings")
+    {
+      String sensorReadings = getSensorReadings();
+      notifyClients(sensorReadings);
+    }
+    else if (msg == "toggleLED")
+    {
+      ledMode = !ledMode; // Toggle LED mode
+    }
   }
 }
 
@@ -87,6 +89,7 @@ void webSocket()
     lastTime = millis();
   }
   ws.cleanupClients();
+  ElegantOTA.loop();
 }
 
 void initWebSocket()
@@ -105,4 +108,7 @@ void initWebSocket()
 
   // Start server
   server.begin();
+
+  // Start ElegantOTA
+  ElegantOTA.begin(&server);
 }

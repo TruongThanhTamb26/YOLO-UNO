@@ -19,6 +19,7 @@ void setup()
   // initLCD();
   // initRGB();
   // initRelayFan();
+  initLED();
 }
 
 void loop()

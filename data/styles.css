@@ -73,3 +73,35 @@ body {
   font-weight: bold;
   color      : #1282A2;
 }
+
+.controls {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.controls h2 {
+  color        : #034078;
+  margin-bottom: 20px;
+}
+
+.button-grid {
+  display        : flex;
+  justify-content: center;
+  gap            : 20px;
+  flex-wrap      : wrap;
+}
+
+.btn {
+  background-color: #034078;
+  color           : white;
+  border          : none;
+  padding         : 12px 24px;
+  font-size       : 1rem;
+  border-radius   : 8px;
+  cursor          : pointer;
+  transition      : background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1282A2;
+}

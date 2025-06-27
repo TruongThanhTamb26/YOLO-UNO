@@ -34,6 +34,7 @@
 #include "../src/device/Relay.h"
 #include "../src/device/Fan.h"
 #include "../src/device/Relay_Fan.h"
+#include "../src/device/LED.h"
 
 #define MY_SCL 12
 #define MY_SDA 11
@@ -44,5 +45,6 @@
 #define MY_RGB 6
 #define MY_RELAY 8
 #define MY_FAN 10
+#define MY_LED 48
 
 #endif

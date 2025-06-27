@@ -12,6 +12,10 @@ function getReadings(){
     websocket.send("getReadings");
 }
 
+function toggleLED() {
+    websocket.send("toggleLED");
+}
+
 function initWebSocket() {
     console.log('Trying to open a WebSocket connection…');
     websocket = new WebSocket(gateway);
