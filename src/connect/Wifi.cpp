@@ -1,12 +1,9 @@
 #include "Wifi.h"
 
-constexpr char WIFI_SSID[] = "ACLAB";
-constexpr char WIFI_PASSWORD[] = "ACLAB2023";
-
 void initWiFi()
 {
     Serial.println("Connecting to AP ...");
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    WiFi.begin(config.wifi_ssid, config.wifi_password);
     while (WiFi.status() != WL_CONNECTED)
     {
         delay(500);

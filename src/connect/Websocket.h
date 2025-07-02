@@ -3,7 +3,7 @@
 
 #include "globals.h"
 
-void initLittleFS();
+void initAccessPoint();
 void initWebSocket();
 void webSocket();
 

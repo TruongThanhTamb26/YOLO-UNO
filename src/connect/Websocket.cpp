@@ -25,14 +25,12 @@ String getSensorReadings()
   return jsonString;
 }
 
-// Initialize LittleFS
-void initLittleFS()
+void initAccessPoint()
 {
-  if (!LittleFS.begin(true))
-  {
-    Serial.println("An error has occurred while mounting LittleFS");
-  }
-  Serial.println("LittleFS mounted successfully");
+  WiFi.softAP("TAM ESP"); // Start a WiFi Access Point
+  IPAddress IP = WiFi.softAPIP();
+  Serial.print("AP IP address: ");
+  Serial.println(IP);
 }
 
 void notifyClients(String sensorReadings)
@@ -55,6 +53,23 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len)
     else if (msg == "toggleLED")
     {
       ledMode = !ledMode; // Toggle LED mode
+    }
+    else
+    {
+      JSONVar json = JSON.parse(msg);
+      if (JSON.typeof(json) == "object" && strcmp((const char *)json["type"], "config_update") == 0)
+      {
+        config.wifi_ssid = (const char *)json["wifi_ssid"];
+        config.wifi_password = (const char *)json["wifi_password"];
+        config.mqtt_user = (const char *)json["mqtt_user"];
+        config.mqtt_key = (const char *)json["mqtt_key"];
+        Serial.println("Configuration updated:");
+        Serial.println("WiFi SSID: " + config.wifi_ssid);
+        Serial.println("WiFi Password: " + config.wifi_password);
+        Serial.println("MQTT User: " + config.mqtt_user);
+        Serial.println("MQTT Key: " + config.mqtt_key);
+        saveConfig();
+      }
     }
   }
 }
@@ -99,14 +114,13 @@ void initWebSocket()
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/index.html", "text/html"); });
+  server.on("/config", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/config.html", "text/html"); });
   server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/script.js", "application/javascript"); });
   server.on("/styles.css", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/styles.css", "text/css"); });
 
-  server.begin();
-
-  // Start server
   server.begin();
 
   // Start ElegantOTA

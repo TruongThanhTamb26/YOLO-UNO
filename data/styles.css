@@ -105,3 +105,25 @@ body {
 .btn:hover {
   background-color: #1282A2;
 }
+
+form {
+  display       : flex;
+  flex-direction: column;
+  gap           : 12px;
+}
+
+input {
+  padding      : 8px;
+  font-size    : 1em;
+  border       : 1px solid #ccc;
+  border-radius: 8px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-card {
+  max-width: 500px;
+  margin   : auto;
+}

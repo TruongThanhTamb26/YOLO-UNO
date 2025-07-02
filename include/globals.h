@@ -21,6 +21,7 @@
 #include "../src/connect/Wifi.h"
 #include "../src/connect/MQTT.h"
 #include "../src/connect/Websocket.h"
+#include "../src/connect/LittleFS.h"
 
 // INPUT
 #include "../src/device/DHT20.h"
@@ -46,5 +47,15 @@
 #define MY_RELAY 8
 #define MY_FAN 10
 #define MY_LED 48
+
+struct Config
+{
+  String wifi_ssid;
+  String wifi_password;
+  String mqtt_user;
+  String mqtt_key;
+};
+
+extern Config config; // Global configuration variable
 
 #endif

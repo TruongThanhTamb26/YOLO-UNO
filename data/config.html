@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESP Configuration</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="topnav">
+    <h1>ESP Configuration</h1>
+    <p class="subtitle">Wi-Fi & MQTT Settings</p>
+  </header>
+
+  <main class="content">
+    <section class="card form-card">
+      <form id="configForm">
+        <h2>Wi-Fi Settings</h2>
+        <label for="ssid">SSID:</label>
+        <input type="text" id="wifissid" name="ssid" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="wifiPassword" name="password" required>
+
+        <h2>MQTT Settings</h2>
+        <label for="mqttUser">IO_USERNAME:</label>
+        <input type="text" id="mqttUser" name="mqttUser">
+
+        <label for="mqttPassword">IO_KEY:</label>
+        <input type="password" id="mqttKey" name="mqttKey">
+
+        <div class="button-grid">
+          <button type="submit" class="btn"><i class="fas fa-save"></i> Save Configuration</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

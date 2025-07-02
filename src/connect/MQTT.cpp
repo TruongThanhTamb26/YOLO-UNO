@@ -4,9 +4,6 @@
 #define MQTT_SERVER "io.adafruit.com"
 #define MQTT_PORT 1883
 
-String IO_USERNAME = "tamtruongb26";
-String IO_KEY = "aio_TawQ38mC8jdBfCW7CFxaV3bfCYyJ";
-
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -17,11 +14,11 @@ void callback(char *topic, byte *payload, unsigned int length)
     {
         message += (char)payload[i];
     }
-    if (strcmp(topic, (String(IO_USERNAME) + "/feeds/Temperature").c_str()) == 0)
+    if (strcmp(topic, (String(config.mqtt_user) + "/feeds/Temperature").c_str()) == 0)
     {
         Serial.println(message);
     }
-    else if (strcmp(topic, (String(IO_USERNAME) + "/feeds/Humidity").c_str()) == 0)
+    else if (strcmp(topic, (String(config.mqtt_user) + "/feeds/Humidity").c_str()) == 0)
     {
         Serial.println(message);
     }
@@ -29,7 +26,7 @@ void callback(char *topic, byte *payload, unsigned int length)
 
 void publishData(String feed, String data)
 {
-    String topic = String(IO_USERNAME) + "/feeds/" + feed;
+    String topic = String(config.mqtt_user) + "/feeds/" + feed;
     if (client.connected())
     {
         client.publish(topic.c_str(), data.c_str());
@@ -40,7 +37,7 @@ void InitMQTT()
 {
     Serial.println("Connecting to MQTT...");
     String clientId = "ESP32Client" + String(random(0, 1000));
-    if (client.connect(clientId.c_str(), IO_USERNAME.c_str(), IO_KEY.c_str()))
+    if (client.connect(clientId.c_str(), config.mqtt_user.c_str(), config.mqtt_user.c_str()))
     {
         Serial.println("MQTT Connected");
         String data = "hello";

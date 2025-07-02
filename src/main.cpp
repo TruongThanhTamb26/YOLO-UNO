@@ -6,9 +6,10 @@ void setup()
   Serial.begin(115200);
   Wire.begin(MY_SDA, MY_SCL);
 
+  initLittleFS();
   initWiFi();
   initMQTT();
-  initLittleFS();
+  initAccessPoint();
   initWebSocket();
 
   // initDHT20();
@@ -19,7 +20,7 @@ void setup()
   // initLCD();
   // initRGB();
   // initRelayFan();
-  initLED();
+  // initLED();
 }
 
 void loop()
