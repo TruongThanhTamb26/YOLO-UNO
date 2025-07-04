@@ -9,12 +9,10 @@ void TaskLED(void *pvParameters)
     if (ledMode == 0) // LED OFF
     {
       digitalWrite(MY_LED, LOW);
-      Serial.println("LED is OFF");
     }
     else // LED ON
     {
       digitalWrite(MY_LED, HIGH);
-      Serial.println("LED is ON");
     }
     vTaskDelay(1000 / portTICK_PERIOD_MS); // Delay for 5 second
   }

@@ -22,6 +22,7 @@
 #include "../src/connect/MQTT.h"
 #include "../src/connect/Websocket.h"
 #include "../src/connect/LittleFS.h"
+#include "../src/connect/connect.h"
 
 // INPUT
 #include "../src/device/DHT20.h"
@@ -36,6 +37,7 @@
 #include "../src/device/Fan.h"
 #include "../src/device/Relay_Fan.h"
 #include "../src/device/LED.h"
+#include "../src/device/TrafficLight.h"
 
 #define MY_SCL 12
 #define MY_SDA 11
@@ -47,6 +49,7 @@
 #define MY_RELAY 8
 #define MY_FAN 10
 #define MY_LED 48
+#define MY_TRAFFIC_LIGHT 7
 
 struct Config
 {

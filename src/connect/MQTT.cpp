@@ -4,6 +4,7 @@
 #define MQTT_SERVER "io.adafruit.com"
 #define MQTT_PORT 1883
 
+bool mqttStatus = false;
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -37,8 +38,9 @@ void InitMQTT()
 {
     Serial.println("Connecting to MQTT...");
     String clientId = "ESP32Client" + String(random(0, 1000));
-    if (client.connect(clientId.c_str(), config.mqtt_user.c_str(), config.mqtt_user.c_str()))
+    if (client.connect(clientId.c_str(), config.mqtt_user.c_str(), config.mqtt_key.c_str()))
     {
+        mqttStatus = true;
         Serial.println("MQTT Connected");
         String data = "hello";
         publishData("IP", WiFi.localIP().toString());
@@ -46,6 +48,7 @@ void InitMQTT()
     }
     else
     {
+        mqttStatus = false;
         Serial.print("MQTT connection failed, rc=");
         Serial.println(client.state());
         delay(1000);

@@ -3,8 +3,10 @@
 
 #include "globals.h"
 
-extern void initMQTT();
-extern void reconnectMQTT();
-extern void publishData(String feed, String data);
+extern bool mqttStatus;
+
+void initMQTT();
+void reconnectMQTT();
+void publishData(String feed, String data);
 
 #endif /* INC_TASKMQTT_H_ */

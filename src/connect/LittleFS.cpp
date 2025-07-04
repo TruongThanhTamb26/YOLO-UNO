@@ -20,7 +20,7 @@ bool loadConfig()
   String content = file.readString(); // đọc toàn bộ file thành chuỗi
   file.close();
 
-  JSONVar json = JSON.parse(content);
+  JSONVar json = JSON.parse(content); 
   if (JSON.typeof(json) != "object")
   {
     Serial.println("Failed to parse JSON");

@@ -6,21 +6,19 @@ void setup()
   Serial.begin(115200);
   Wire.begin(MY_SDA, MY_SCL);
 
-  initLittleFS();
-  initWiFi();
-  initMQTT();
-  initAccessPoint();
-  initWebSocket();
+  initLittleFS(); // Save the default configuration
+  initConnect();
 
-  // initDHT20();
-  // initMoisture();
-  // initLightSensor();
-  // initHCSR04();
+  initDHT20();
+  initMoisture();
+  initLightSensor();
+  initHCSR04();
 
-  // initLCD();
-  // initRGB();
-  // initRelayFan();
-  // initLED();
+  initLCD();
+  initRGB();
+  initRelayFan();
+  initTrafficLight();
+  initLED();
 }
 
 void loop()

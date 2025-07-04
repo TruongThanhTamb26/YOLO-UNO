@@ -63,12 +63,9 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len)
         config.wifi_password = (const char *)json["wifi_password"];
         config.mqtt_user = (const char *)json["mqtt_user"];
         config.mqtt_key = (const char *)json["mqtt_key"];
-        Serial.println("Configuration updated:");
-        Serial.println("WiFi SSID: " + config.wifi_ssid);
-        Serial.println("WiFi Password: " + config.wifi_password);
-        Serial.println("MQTT User: " + config.mqtt_user);
-        Serial.println("MQTT Key: " + config.mqtt_key);
         saveConfig();
+        loadConfig();  // Reload configuration from file
+        initConnect(); // Reinitialize connections with new config
       }
     }
   }
