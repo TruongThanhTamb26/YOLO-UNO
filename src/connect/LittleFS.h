@@ -3,6 +3,8 @@
 
 #include "globals.h"
 
+extern bool info;
+
 void initLittleFS();
 bool loadConfig();
 bool saveConfig();

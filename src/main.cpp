@@ -6,18 +6,19 @@ void setup()
   Serial.begin(115200);
   Wire.begin(MY_SDA, MY_SCL);
 
-  initLittleFS(); // Save the default configuration
+  initLittleFS();    // Save the default configuration
+  initAccessPoint(); // Initialize Access Point
   initConnect();
 
-  initDHT20();
-  initMoisture();
-  initLightSensor();
-  initHCSR04();
+  // initDHT20();
+  // initMoisture();
+  // initLightSensor();
+  // initHCSR04();
 
-  initLCD();
-  initRGB();
-  initRelayFan();
-  initTrafficLight();
+  // initLCD();
+  // initRGB();
+  // initRelayFan();
+  initNeopixel();
   initLED();
 }
 

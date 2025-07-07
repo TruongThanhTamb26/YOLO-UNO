@@ -1,6 +1,7 @@
 #include "LittleFS.h"
 
 Config config;
+bool info = false;
 
 bool loadConfig()
 {
@@ -20,7 +21,7 @@ bool loadConfig()
   String content = file.readString(); // đọc toàn bộ file thành chuỗi
   file.close();
 
-  JSONVar json = JSON.parse(content); 
+  JSONVar json = JSON.parse(content);
   if (JSON.typeof(json) != "object")
   {
     Serial.println("Failed to parse JSON");
@@ -31,6 +32,16 @@ bool loadConfig()
   config.wifi_password = (const char *)json["wifi_password"];
   config.mqtt_user = (const char *)json["mqtt_user"];
   config.mqtt_key = (const char *)json["mqtt_key"];
+
+  if (config.wifi_ssid == "" || config.mqtt_user == "" || config.mqtt_key == "")
+  {
+    Serial.println("Configuration is incomplete, please check your config.json file");
+    info = false;
+  }
+  else
+  {
+    info = true;
+  }
 
   Serial.println("Configuration loaded successfully:");
   Serial.println("WiFi SSID: " + config.wifi_ssid);

@@ -2,9 +2,6 @@
 
 void initConnect()
 {
-  // Initialize Access Point
-  initAccessPoint();
-
   // Initialize WiFi
   initWiFi();
 
